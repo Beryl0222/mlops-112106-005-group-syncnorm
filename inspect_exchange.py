@@ -20,10 +20,10 @@ def inspect(path: Path) -> dict:
 
 def validate(data: dict) -> None:
     assert set(data["expected_workers"]) == data["workers"].keys()
-        for worker in data["workers"].values():
-            lengths = {len(worker[key]) for key in ("groups", "x", "mask", "dy")}
-            assert len(lengths) == 1
-            assert all(len(row) == len(data["gamma"]) for row in worker["x"] + worker["dy"])
+    for worker in data["workers"].values():
+        lengths = {len(worker[key]) for key in ("groups", "x", "mask", "dy")}
+        assert len(lengths) == 1
+        assert all(len(row) == len(data["gamma"]) for row in worker["x"] + worker["dy"])
 
 
 def main() -> None:
